@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="bottom|clip_horizontal"
+    android:background="#01000000" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <com.xiaobai.viewimage.PicGallery
+            android:id="@+id/pic_gallery"
+            android:spacing="10sp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+             />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="fill_parent"
+        android:layout_height="28dp"
+        android:text="姓名"
+        android:textColor="@color/green_c"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textViewPhone"
+        android:layout_width="fill_parent"
+        android:layout_height="28dp"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/green_c"
+        android:text="电话号码"
+        android:textSize="18sp" />
+    
+    <Button
+        android:id="@+id/btn_phone"
+        android:layout_width="85dp"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom|center"
+         android:background="@drawable/phonebtn"
+        android:textColor="#ffffff" />
+    
+        <Button
+            android:id="@+id/btn_sendmsg"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom|right"
+            android:background="@drawable/msgbtn"
+            android:visibility="gone"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/btn_cam"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:background="@drawable/add_btn"
+            android:text="" />
+        
+         <Button
+            android:id="@+id/btn_ring"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom|right"
+            android:background="@drawable/ring"
+            android:text="" />
+
+</FrameLayout>

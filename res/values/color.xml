@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="app_btn">#ff822b</color>
+
+   <color name="black_a">#C0C0C0</color>
+    <color name="black_b">#A9A9A9</color>
+    <color name="black_c">#808080</color>
+    <color name="black_d">#696969</color>
+
+    <color name="red_a">#ff3300</color>
+    <color name="red_b">#ff0000</color>
+
+    <color name="orange_a">#e46634</color>
+    <color name="orange_b">#ff7e00</color>
+    <color name="orange_c">#de7424</color>
+    <color name="orange_d">#ed6d10</color>
+
+    <color name="violet_a">#FFB6C1</color>
+    <color name="violet_b">#DB7093</color>
+    <color name="violet_c">#FF1493</color>
+    <color name="violet_d">#DA70D6</color>
+    <color name="violet_e">#FF00FF</color>
+    <color name="violet_f">#9400D3</color>
+    <color name="violet_g">#8B008B</color>
+    <color name="violet_h">#4B0082</color>
+    <color name="violet_i">#483D8B</color>
+    <color name="violet_j">#191970</color>
+
+    <color name="green_a">#90EE90</color>
+    <color name="green_b">#00FF00</color>
+    <color name="green_c">#228B22</color>
+    <color name="green_d">#006400</color>
+    <color name="green_e">#7FFF00</color>
+
+    <color name="blue_a">#87CEFA</color>
+    <color name="blue_b">#00BFFF</color>
+    <color name="blue_c">#B0E0E6</color>
+    <color name="blue_d">#5F9EA0</color>
+    <color name="blue_e">#008B8B</color>
+
+    <color name="yellow_a">#FFFF00</color>
+    <color name="yellow_b">#EEE8AA</color>
+    <color name="yellow_c">#FFD700</color>
+    <color name="yellow_d">#DAA520</color>
+    <color name="yellow_e">#B8860B</color>
+    <color name="yellow_f">#8B4513</color>
+
+    <color name="back">#111111</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#a0a0a0</color>
+    <color name="transparent_background">#00000000</color>
+	
+    <color name="black">#C0C0C0</color>
+	<color name="commom_background">#111111</color>
+	<color name="font_blue">#00479d</color>
+	<color name="font_common_2">#a0a0a0</color>
+	<color name="font_common_1">#a0a0a0</color>
+	
+    <color name="blue">#00479d</color>
+    <color name="yellow">#fff100</color>
+    <color name="gold">#d3ac71</color>
+    <color name="orange">#f39500</color>
+    <color name="purple">#601986</color>
+    <color name="brown">#704929</color>
+    <color name="cyan">#26d4d0</color>
+
+</resources>

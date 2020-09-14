@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.xiaobai.viewimage.CamActivity" >
+
+    <Button
+        android:id="@+id/btnCam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="4dp"
+        android:text="打开相机" />
+
+    <ImageView
+        android:id="@+id/imageIV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btnCam"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnSysPic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageIV"
+        android:layout_toRightOf="@+id/btnCam"
+        android:text="相册导入" />
+
+    <Button
+        android:id="@+id/btnTakePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageIV"
+        android:layout_toRightOf="@+id/btnSysPic"
+        android:text="录入" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnCam"
+        android:layout_alignRight="@+id/imageIV"
+        android:layout_alignTop="@+id/imageIV"
+        android:layout_marginTop="72dp"
+        android:text="1.拍摄一张图片 或者 从相册导入一张图片\n2.点击 录入 按钮填入名字与号码" />
+
+</RelativeLayout>

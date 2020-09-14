@@ -1,0 +1,1 @@
+![avatar](https://github.com/gbmm/AndroidPicturePhone/blob/master/test.jpg)

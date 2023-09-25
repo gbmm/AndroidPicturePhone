@@ -1,6 +1,7 @@
 package com.xiaobai.viewimage;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import android.R.string;
@@ -12,7 +13,9 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
@@ -91,9 +94,20 @@ public class PictureViewFra extends Fragment implements
 		});
 		
 		
+		Button btn_wifi = (Button)view.findViewById(R.id.btn_wifi);
+		btn_wifi.setOnClickListener(new OnClickListener() {
+			public void onClick(View arg0) {
+				WifiManager wifiManager = (WifiManager)getActivity().getSystemService(Context.WIFI_SERVICE);
+				wifiManager.setWifiEnabled(true);
+				Toast.makeText(getActivity(), "已经打开wifi",Toast.LENGTH_LONG).show();
+			}
+		});
+		
 		Button btn_ring = (Button)view.findViewById(R.id.btn_ring);
 		btn_ring.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
+//				PowerManager pManager=(PowerManager)getActivity().getSystemService(Context.POWER_SERVICE);    
+//				pManager.reboot(null);//重启
 				
 				AudioManager mAudioManager = (AudioManager)getActivity().getSystemService(Context.AUDIO_SERVICE);
 				int max = mAudioManager.getStreamMaxVolume( AudioManager.STREAM_RING );
@@ -103,6 +117,16 @@ public class PictureViewFra extends Fragment implements
 				max = mAudioManager.getStreamMaxVolume( AudioManager.STREAM_VOICE_CALL );
 				mAudioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL , max, 1);
 				
+				try {
+				mAudioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+				mAudioManager.setVibrateSetting(AudioManager.VIBRATE_TYPE_RINGER,
+		                AudioManager.VIBRATE_SETTING_ON);
+				mAudioManager.setVibrateSetting(AudioManager.VIBRATE_TYPE_NOTIFICATION,
+		                AudioManager.VIBRATE_SETTING_ON);}
+				catch(Exception e) {
+					Toast.makeText(getActivity(), e.toString(),Toast.LENGTH_LONG).show();
+				}
+		        
 				MediaPlayer mp = new MediaPlayer();
 				try {
 					mp.setDataSource(getActivity(), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));

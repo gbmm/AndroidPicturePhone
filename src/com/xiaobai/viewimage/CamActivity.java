@@ -1,19 +1,14 @@
 package com.xiaobai.viewimage;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
-import android.Manifest;
-import android.R.string;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -24,11 +19,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.Display;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -58,7 +50,7 @@ public class CamActivity extends Activity {
 				clickCam();
 			}});
 		
-		//Â¼Èë
+		//Â¼ï¿½ï¿½
 		Button btnTakePhoto = (Button) findViewById(R.id.btnTakePhoto);
 		btnTakePhoto.setOnClickListener(new OnClickListener(){
 			@Override
@@ -67,7 +59,7 @@ public class CamActivity extends Activity {
 				Toast.makeText(CamActivity.this, "btn cam", Toast.LENGTH_LONG).show();
 			}});
 		
-		//Â¼Èë
+		//Â¼ï¿½ï¿½
 		Button btnSysPic = (Button) findViewById(R.id.btnSysPic);
 		btnSysPic.setOnClickListener(new OnClickListener(){
 			@Override
@@ -86,18 +78,18 @@ public class CamActivity extends Activity {
 	
 	public void clickPhoto(){
 		if (picFileFullName == null){
-			Toast.makeText(CamActivity.this, "ÇëÏÈÅÄÕÕ»òµ¼ÈëÍ¼Æ¬", Toast.LENGTH_LONG).show();
+			Toast.makeText(CamActivity.this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½Í¼Æ¬", Toast.LENGTH_LONG).show();
 			return;
 		}
-		EdtDialog commomDialog = new EdtDialog(CamActivity.this, R.style.dialog, "ÎÒÊÇË­£¬ÎÒÔÚÄÄ£¿ --  VollegeTargetActivity", new EdtDialog.OnCloseListener() {
+		EdtDialog commomDialog = new EdtDialog(CamActivity.this, R.style.dialog, "ï¿½ï¿½ï¿½ï¿½Ë­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ --  VollegeTargetActivity", new EdtDialog.OnCloseListener() {
             @Override
             public void onClick(Dialog dialog, boolean confirm) {
             	if (confirm && ((EdtDialog)dialog).infoString.length() > 0){
-            		// ¸´ÖÆÍ¼Æ¬
+            		// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
             		if (copyFile(picFileFullName,((EdtDialog)dialog).infoString +".jpg")){
-            			Toast.makeText(CamActivity.this,"Â¼Èë³É¹¦", Toast.LENGTH_LONG).show();
+            			Toast.makeText(CamActivity.this,"Â¼ï¿½ï¿½É¹ï¿½", Toast.LENGTH_LONG).show();
             		}else{
-            			Toast.makeText(CamActivity.this, "Â¼ÈëÊ§°Ü", Toast.LENGTH_LONG).show();
+            			Toast.makeText(CamActivity.this, "Â¼ï¿½ï¿½Ê§ï¿½ï¿½", Toast.LENGTH_LONG).show();
             		}
             		 
             	}
@@ -105,14 +97,14 @@ public class CamActivity extends Activity {
                 dialog.dismiss();
             }
         });
-		commomDialog.setTitle("ÌáÊ¾").show();
+		commomDialog.setTitle("ï¿½ï¿½Ê¾").show();
 	}
 	
 	
 	public boolean copyFile(String oldPathName, String newName) {
 	    try {
 	        File oldFile = new File(oldPathName);
-	        /* Èç¹û²»ÐèÒª´òlog£¬¿ÉÒÔÊ¹ÓÃÏÂÃæµÄÓï¾ä*/
+	        /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½logï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	        if (!oldFile.exists() || !oldFile.isFile() || !oldFile.canRead()) {
 	            return false;
 	        }
@@ -125,7 +117,7 @@ public class CamActivity extends Activity {
             	 newImage.delete();
              }
              
-	        FileInputStream fileInputStream = new FileInputStream(oldPathName);    //¶ÁÈëÔ­ÎÄ¼þ
+	        FileInputStream fileInputStream = new FileInputStream(oldPathName);    //ï¿½ï¿½ï¿½ï¿½Ô­ï¿½Ä¼ï¿½
 	        FileOutputStream fileOutputStream = new FileOutputStream(newPathName);
 	        byte[] buffer = new byte[1024];
 	        int byteRead;
@@ -171,16 +163,16 @@ public class CamActivity extends Activity {
         if (requestCode == REQUEST_CAMERA_CODE && resultCode == RESULT_OK) {
 //            Bitmap photo = (Bitmap) data.getExtras().get("data");
 //            imgView.setImageBitmap(photo);
-            //»ñµÃÍ¼Æ¬
+            //ï¿½ï¿½ï¿½Í¼Æ¬
         	Log.v("debug", "======"+picFileFullName);
             Bitmap bp = getBitMapFromPath(picFileFullName);
             imgView.setImageBitmap(bp);
             Toast.makeText(CamActivity.this, picFileFullName, Toast.LENGTH_LONG).show();
         }else if(requestCode == SELECT_PHOTO){
         	 if (resultCode == RESULT_OK) {
-                 //ÅÐ¶ÏÊÖ»úÏµÍ³°æ±¾ºÅ
+                 //ï¿½Ð¶ï¿½ï¿½Ö»ï¿½ÏµÍ³ï¿½æ±¾ï¿½ï¿½
                  if (Build.VERSION.SDK_INT > 19) {
-                     //4.4¼°ÒÔÉÏÏµÍ³Ê¹ÓÃÕâ¸ö·½·¨´¦ÀíÍ¼Æ¬
+                     //4.4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
                 	 picFileFullName = handleImgeOnKitKat(data);
                 	 Log.e("debug", "===photo==="+picFileFullName);
                 	 Toast.makeText(CamActivity.this, picFileFullName, Toast.LENGTH_LONG).show();
@@ -221,7 +213,7 @@ public class CamActivity extends Activity {
 
 	 
 	 /**
-	     * Í¨¹ýuriºÍselectionÀ´»ñÈ¡ÕæÊµµÄÍ¼Æ¬Â·¾¶
+	     * Í¨ï¿½ï¿½uriï¿½ï¿½selectionï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Êµï¿½ï¿½Í¼Æ¬Â·ï¿½ï¿½
 	     * */
 	 private String getImagePath(Uri uri,String selection) {
 	        String path = null;
@@ -235,7 +227,7 @@ public class CamActivity extends Activity {
 	        return path;
 	    }
 
-	/* »ñµÃÍ¼Æ¬£¬²¢½øÐÐÊÊµ±µÄ Ëõ·Å¡£ Í¼Æ¬Ì«´óµÄ»°£¬ÊÇÎÞ·¨Õ¹Ê¾µÄ¡£ */
+	/* ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å¡ï¿½ Í¼Æ¬Ì«ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½Õ¹Ê¾ï¿½Ä¡ï¿½ */
     private Bitmap getBitMapFromPath(String imageFilePath) {
          Display currentDisplay = getWindowManager().getDefaultDisplay();
 
